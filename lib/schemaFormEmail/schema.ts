@@ -22,7 +22,7 @@ export const inputSchema = z.object({
 
     correo: z.string()
         .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-            { message: 'Ingresa un correo electrónico válido' }),
+            { message: 'Ingresa un correo electrónico válido.' }),
 
     pqrsContenido: z.string()
         .min(4, { message: 'El contenido debe tener al menos 4 letras.' })

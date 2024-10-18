@@ -2,14 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: "General Sans Medium";
+  src: url("/fonts/general/GeneralSans-Medium.woff2") format("woff2"),
+    url("/fonts/general/GeneralSans-Medium.woff") format("woff"),
+    url("/fonts/general/GeneralSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@font-face {
+  font-family: "General Sans Light";
+  src: url("/fonts/general/GeneralSans-Light.woff2") format("woff2"),
+    url("/fonts/general/GeneralSans-Light.woff") format("woff"),
+    url("/fonts/general/GeneralSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans Regular";
+  src: url("/fonts/general/GeneralSans-Regular.woff2") format("woff2"),
+    url("/fonts/general/GeneralSans-Regular.woff") format("woff"),
+    url("/fonts/general/GeneralSans-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "General Sans LightItalic";
+  src: url("../fonts/general/GeneralSans-LightItalic.woff2") format("woff2"),
+    url("../fonts/general/GeneralSans-LightItalic.woff") format("woff"),
+    url("../fonts/general/GeneralSans-Italic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/general/Poppins-Regular.woff2') format('woff2'),
+      url('../fonts/general/Poppins-Regular.woff') format('woff'),
+      url('../fonts/general/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
@@ -33,13 +74,19 @@ body {
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -65,6 +112,11 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
   }
 }
 
@@ -74,5 +126,14 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .text-main-hero {
+    font-family: "General Sans LightItalic";
+    color: white
+  }
+
+  .poppins {
+    font-family: 'Poppins';
   }
 }
