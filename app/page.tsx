@@ -1,5 +1,4 @@
 'use client';
-// import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -18,16 +17,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod';
 import { useMutation } from "@tanstack/react-query";
 import { CarouselDemo } from "@/components/CarouselImages";
-// import HeroMain from "@/components/Hero/HeroMain";
-// import Link from "next/link";
 import Footer from "@/components/Footer";
 import Info from "@/components/Info";
-// import { AnimatedShinyTextDemo } from "@/components/Button";
 import SparklesText from "@/components/ui/sparkles-text";
-// import { AnimatedSubscribeButtonDemo } from "@/components/SendEmailButton";
 import TopBar from "@/components/TopBar";
 import Countdown from 'react-countdown';
 import { useEffect, useState } from "react";
+import Map from "@/components/Map";
+import TextSection from "@/components/TextSection";
 
 type Input = z.infer<typeof inputSchema>
 
@@ -53,22 +50,9 @@ const formFields: Array<{
     { name: 'pqrsContenido', label: 'Mensaje', placeholder: 'Mensaje' },
   ];
 
-const palabras: string[] = [
-  'Salud',
-  'Estética',
-  'Belleza',
-  'Exfoliación',
-  'Confianza',
-  'Bienestar'
-]
 export default function Home() {
-
   const [isDisabledButton, setIsDisabledButton] = useState(false)
-  const [countdownEnd, setCountdownEnd] = useState<string | number | Date | undefined>(0); // Track countdown end time
-  // const Completionist = () => {
-  //   setIsDisabledButton(false);
-  //   return null;
-  // };
+  const [countdownEnd, setCountdownEnd] = useState<string | number | Date | undefined>(0);
 
   const form = useForm<Input>({
     resolver: zodResolver(inputSchema),
@@ -154,32 +138,20 @@ export default function Home() {
                   <h1 className="text-black font-semibold">Benelova: Clínica estética con instalación en Ibagué, Tolima</h1>
                 </div>
                 <div className="bg-white rounded-2xl w-96 p-5 poppins">
-                  <h1>Clínica de belleza especializada y certificada</h1>
+                  <h1 className="">Clínica de belleza especializada y certificada</h1>
                 </div>
               </div>
 
 
-              <div className="flex mt-32 justify-between gap-0">
-                <div>
-                  <Image src="/text_main.svg" alt="frame" width={650} height={200} className="m-5" />
-                </div>
-                <div className="flex gap-2 m-6 self-end">
-                  {palabras.map((palabra: string, index: number) => (
-                    <div key={index} className="bg-white/90 rounded-2xl text-gray-950 px-4 py-2 backdrop-blur-md h-10">
-                      {palabra}
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <TextSection />
 
             </div>
           </div>
 
           <main className="md:pb-10">
             <div className="px-6 md:px-0 w-full md:w-4/5 lg:w-3/4 xl:w-3/4 2xl:w-[68%] mx-auto">
-              {/* <HeroMain /> */}
-              <CarouselDemo />
 
+              <CarouselDemo />
 
               <div className="flex flex-col justify-c enter items-center mt-32 mb-10">
                 <SparklesText className="text-[5vw] text-center" text="Benelova te está esperando!" />
@@ -187,17 +159,20 @@ export default function Home() {
                 <h1 className="text-[3vw] text-center">
                   Ingresa tu email para estar al tanto de todo.
                 </h1>
-                {/* <AnimatedSubscribeButtonDemo /> */}
               </div>
+
               <div className="flex flex-col md:flex-row gap-4">
-                <div>
-                  <Image src="/woman-1.jpg" alt="yei" width={700} height={700} className='rounded-[100px]' />
-                  <div className="flex">
-                    {/* <SparklesText className="text-[5vh] m-2" text="🎁" /> */}
-                    <h1 className="text-[3vh] m-2">Llena el formulario y comunícate directamente con nosotros, <p className="font-bold">te atenderémos inmediátamente.</p></h1>
+                <div className="flex flex-col items-center justify-center">
+                  <Image src="/woman-1.jpg" alt="" width={500} height={500} className="rounded-[50px]" />
+                  <div className="flex flex-col items-center mt-4"> {/* Center text and apply margin */}
+                    <h1 className="text-[3vh] text-center m-2">
+                      Llena el formulario y comunícate directamente con nosotros, <br />
+                      <p className="font-bold">te atenderémos inmediatamente. ᯓ★</p>
+                    </h1>
                   </div>
                 </div>
-                <div className="px-5 w-full relative">
+
+                <div className="px-5 w-full relative mb-16">
                   <div className="absolute inset-0">
                     <svg viewBox="0 0 240 300" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -207,7 +182,7 @@ export default function Home() {
                     </svg>
                   </div>
 
-                  <div className="relative">
+                  <div className="relative mx-9 md:mx-0">
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)}>
                         {formFields.map((field) => (
@@ -256,22 +231,7 @@ export default function Home() {
 
               <Info />
 
-
-              <div id="mapa" className="rounded-3xl bg-black m-3 flex flex-col lg:flex-row">
-                <div className="relative w-full h-0 pb-[56.25%]"> {/* 16:9 Aspect Ratio */}
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.8215402064757!2d-75.24342542560727!3d4.444289095529948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38c4848b536707%3A0x82df9fee904c0fdd!2sDario%20Echandia%20Library!5e0!3m2!1sen!2sco!4v1727322410570!5m2!1sen!2sco"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-                <h1 className="text-[4vw] text-white p-4 hidden md:block">
-                  Nos puedes encontrar en xxxxxx-xxxx-xxxxx-xxx-xx Ibagué Tolima
-                </h1>
-              </div>
-
+              <Map />
 
             </div>
           </main>

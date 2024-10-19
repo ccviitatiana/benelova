@@ -70,7 +70,7 @@ export function CarouselDemo() {
               key={index}
               className={`carousel-item md:basis-1/5 lg:basis-1/5 ${index === activeIndex ? 'active' : ''}`} // Apply "active" class to active item
             >
-              <Card className="h-48 w-full">
+              <Card className="h-48 w-full rounded-2xl">
                 <CardContent className="relative h-full w-full">
                   <Image
                     src={`/carousel-${index + 1}.jpg`} 

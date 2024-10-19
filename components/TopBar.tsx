@@ -5,7 +5,7 @@ import { AnimatedShinyTextDemo } from './Button'
 
 
 const TopBar = () => {
-   
+
     return (
         <>
             <div className="sticky top-0 backdrop-blur-xl bg-white z-50 w-screen rounded-3xl p-4">
@@ -15,9 +15,7 @@ const TopBar = () => {
                     </Link>
                     <div className='flex justify-between gap-5 items-center'>
                         <h1 className="font-semibold hidden md:block">+57 302 58 54 039</h1>
-                        <a href={"#mapa"}>
-                            <AnimatedShinyTextDemo />
-                        </a>
+                        <AnimatedShinyTextDemo />
                     </div>
                 </div>
             </div>
